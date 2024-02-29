@@ -19,7 +19,8 @@ int visit_node(const binary_tree_t *node, int is_full)
 			is_full = 0;
 			/* return (is_full); */
 		}
-		else
+		else if ((rp == NULL && lp == NULL) ||
+				(rp != NULL && lp != NULL))
 		{
 			is_full = 1;
 			is_full = visit_node(lp, is_full);
