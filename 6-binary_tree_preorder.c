@@ -7,7 +7,7 @@
  */
 void visit_node(const binary_tree_t *node, void (*func)(int))
 {
-	if (node != NULL)
+	if (node != NULL && func != NULL)
 	{
 		binary_tree_t *left_ptr = node->left;
 		binary_tree_t *right_ptr = node->right;
