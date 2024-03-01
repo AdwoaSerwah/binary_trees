@@ -1,4 +1,5 @@
 #include "binary_trees.h"
+
 /**
  * find_depth - Finds the depth of a node
  * @node: Node
@@ -10,7 +11,7 @@ int find_depth(const binary_tree_t *node)
 	int count = 0;
 	const binary_tree_t *ptr = node;
 
-	while (ptr != NULL)
+	while (ptr->parent != NULL)
 	{
 		count++;
 		ptr = ptr->parent;
