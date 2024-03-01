@@ -1,12 +1,12 @@
 #include "binary_trees.h"
 
 /**
- * find_depth - Finds the depth of a node
+ * find_depth1 - Finds the depth of a node
  * @node: Node
  *
  * Return: depth
  */
-int find_depth(const binary_tree_t *node)
+int find_depth1(const binary_tree_t *node)
 {
 	int count = 0;
 	const binary_tree_t *ptr = node;
@@ -31,11 +31,13 @@ binary_tree_t *binary_trees_ancestor(
 {
 	int first_depth = 0, second_depth = 0;
 
-	if (first == NULL || second == NULL || first->parent == NULL ||
-			second->parent == NULL)
+	if (first == NULL || second == NULL)
 		return (NULL);
-	first_depth = find_depth(first);
-	second_depth = find_depth(second);
+	if (first->parent == NULL)
+		return ((binary_tree_t *) first);
+	if (second->parent == NULL)
+		return ((binary_tree_t *) second);
+	first_depth = find_depth1(first), second_depth = find_depth1(second);
 	if (first_depth != second_depth)
 	{
 		if (first_depth > second_depth)
@@ -59,12 +61,12 @@ binary_tree_t *binary_trees_ancestor(
 			}
 		}
 	}
-	while (first_depth > 1)
+	while (first_depth > 0)
 	{
 		if (first->parent == second->parent)
 			return (first->parent);
 		first = first->parent;
 		second = second->parent;
 	}
-	return (first->parent);
+	return (NULL);
 }
