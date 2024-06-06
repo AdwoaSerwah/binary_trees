@@ -10,12 +10,12 @@ void enqueue(qnode_sk **queue, const binary_tree_t *node)
 	qnode_sk *new_skb = malloc(sizeof(qnode_sk));
 	qnode_sk *tmp_skb = *queue;
 
-	if (!new_skb)
+	if (new_skb == NULL)
 		return;
 	new_skb->node = node;
 	new_skb->next = NULL;
 
-	if (!*queue)
+	if (*queue == NULL)
 	{
 		*queue = new_skb;
 	}
@@ -28,17 +28,17 @@ void enqueue(qnode_sk **queue, const binary_tree_t *node)
 }
 
 /**
- * dequeue - Removes a node from the front of the queue
- * @queue: The queue to remove from
+ * dequeue - Removes node from queue
+ * @queue: Queue
  *
- * Return: The binary tree node removed
+ * Return: Node removed
  */
 const binary_tree_t *dequeue(qnode_sk **queue)
 {
 	qnode_sk *tmp_skb;
 	const binary_tree_t *node;
 
-	if (!*queue)
+	if (*queue == NULL)
 		return (NULL);
 	tmp_skb = *queue;
 	node = tmp_skb->node;
@@ -48,16 +48,16 @@ const binary_tree_t *dequeue(qnode_sk **queue)
 }
 
 /**
- * binary_tree_levelorder - Traverses a binary tree using level-order traversal
- * @tree: Pointer to the root node of the tree to traverse
- * @func: Pointer to a function to call for each node
+ * binary_tree_levelorder - Traverses a binary tree
+ * @tree: Pointer to root node
+ * @func: Function pointer
  */
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
 	qnode_sk *queue = NULL;
 	const binary_tree_t *current;
 
-	if (!tree || !func)
+	if (tree == NULL && func == NULL)
 		return;
 
 	enqueue(&queue, tree);
