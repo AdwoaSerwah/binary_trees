@@ -57,7 +57,7 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 	qnode_sk *queue = NULL;
 	const binary_tree_t *current;
 
-	if (tree == NULL && func == NULL)
+	if (tree == NULL || func == NULL)
 		return;
 
 	enqueue(&queue, tree);
