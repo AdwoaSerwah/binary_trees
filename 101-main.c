@@ -21,15 +21,7 @@ int main(void)
 {
 	binary_tree_t *root;
 
-	root = binary_tree_node(NULL, 1);
-	root->left = binary_tree_node(root, 2);
-	root->right = binary_tree_node(root, 3);
-	root->left->left = binary_tree_node(root->left, 4);
-	root->right->right = binary_tree_node(root->right, 5);
-	root->left->left->left = binary_tree_node(root->left->left, 6);
-	root->right->right->right = binary_tree_node(root->right->right, 7);
-
-	/*root = binary_tree_node(NULL, 98);
+	root = binary_tree_node(NULL, 98);
 	root->left = binary_tree_node(root, 12);
 	root->right = binary_tree_node(root, 402);
 	root->left->left = binary_tree_node(root->left, 6);
@@ -37,7 +29,7 @@ int main(void)
 	root->left->right->left = binary_tree_node(root->left, 2);
 	root->left->right->right = binary_tree_node(root->left, 5);
 	root->right->left = binary_tree_node(root->right, 256);
-	root->right->left->right = binary_tree_node(root->right, 512);*/
+	root->right->left->right = binary_tree_node(root->right, 512);
 
 	binary_tree_print(root);
 	binary_tree_levelorder(root, &print_num);
