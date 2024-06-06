@@ -31,6 +31,6 @@ void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
 {
 	if (tree != NULL)
 		func(tree->n);
-	if (tree != NULL || func != NULL)
+	if (tree != NULL && func != NULL)
 		visit_node(tree, func);
 }
